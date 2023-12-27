@@ -149,23 +149,43 @@ const ItemRows = ({ goldRatePerGram = 4420 }: ItemRowsProps) => {
                                 weight={ornament.weight}
                                 key={ornament.id}
                             />
-                            <span className={styles.total__text}>Total</span>
-                            <span className={styles.total__units}>
+                            <span key={'total'} className={styles.total__text}>
+                                Total
+                            </span>
+                            <span
+                                key={'total__units'}
+                                className={styles.total__units}
+                            >
                                 {totals.units}
                             </span>
-                            <span className={styles.total__weight}>
+                            <span
+                                key={'total__weight'}
+                                className={styles.total__weight}
+                            >
                                 {totals.weightInGrams}
                             </span>
-                            <span className={styles.total__net__weight}>
+                            <span
+                                key={'total__net__weight'}
+                                className={styles.total__net__weight}
+                            >
                                 {totals.netWeight}
                             </span>
-                            <span className={styles.total__carat__22__gold}>
+                            <span
+                                key={'total__carat__22__gold'}
+                                className={styles.total__carat__22__gold}
+                            >
                                 {totals.carat22Gold}
                             </span>
-                            <span className={styles.total__carat__24__gold}>
+                            <span
+                                key={'total__carat__24__gold'}
+                                className={styles.total__carat__24__gold}
+                            >
                                 {totals.carat24Gold}
                             </span>
-                            <span className={styles.total__price}>
+                            <span
+                                key={'total__price'}
+                                className={styles.total__price}
+                            >
                                 {totals.priceValue}
                             </span>
                         </>
