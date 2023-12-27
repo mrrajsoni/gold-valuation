@@ -37,6 +37,30 @@ const totalValues = {
     priceValue: 0,
 }
 
+const headerRowItems = [
+    {
+        text: 'Sr. No.',
+    },
+    {
+        text: 'Ornament List',
+    },
+    {
+        text: 'No. of units',
+    },
+    {
+        text: 'Purity in carat',
+    },
+    {
+        text: 'Purity in percentage',
+    },
+    {
+        text: 'Weight in grams',
+    },
+    {
+        text: 'Approx value in rupees',
+    },
+]
+
 interface ItemRowsProps {
     goldRatePerGram?: number
 }
@@ -108,51 +132,65 @@ const ItemRows = ({ goldRatePerGram = 4420 }: ItemRowsProps) => {
         setAllOrnamentList(newList)
     }
     return (
-        <>
+        <section className={styles.item__rows__container}>
             <ItemRowsHeader>
                 {allOrnamentList.map((ornament, index) => {
                     return (
-                        <ItemRow
-                            index={index}
-                            onChange={handleChange}
-                            purityInCaratValue={ornament.purityInCarat}
-                            units={ornament.quantity}
-                            purityInPercentageValue={
-                                ornament.purityInPercentage
-                            }
-                            valuationPrice={ornament.averageValue}
-                            weight={ornament.weight}
-                            key={ornament.id}
-                        />
+                        <>
+                            <ItemRow
+                                index={index}
+                                onChange={handleChange}
+                                purityInCaratValue={ornament.purityInCarat}
+                                units={ornament.quantity}
+                                purityInPercentageValue={
+                                    ornament.purityInPercentage
+                                }
+                                valuationPrice={ornament.averageValue}
+                                weight={ornament.weight}
+                                key={ornament.id}
+                            />
+                            <span className={styles.total__text}>Total</span>
+                            <span className={styles.total__units}>
+                                {totals.units}
+                            </span>
+                            <span className={styles.total__weight}>
+                                {totals.weightInGrams}
+                            </span>
+                            <span className={styles.total__net__weight}>
+                                {totals.netWeight}
+                            </span>
+                            <span className={styles.total__carat__22__gold}>
+                                {totals.carat22Gold}
+                            </span>
+                            <span className={styles.total__carat__24__gold}>
+                                {totals.carat24Gold}
+                            </span>
+                            <span className={styles.total__price}>
+                                {totals.priceValue}
+                            </span>
+                        </>
                     )
                 })}
             </ItemRowsHeader>
 
-            <div className={`${styles.totals__row} flex`}>
-                <span>Total</span>,<span>{totals.units}</span>,
-                <span>{totals.weightInGrams}</span>,
-                <span>{totals.netWeight}</span>,
-                <span>{totals.carat22Gold}</span>,
-                <span>{totals.carat24Gold}</span>,
-                <span>{totals.priceValue}</span>,
-            </div>
+            <div className={`${styles.totals__row} grid`}></div>
             <button onClick={addNewRow} type="button">
                 Add New Row
             </button>
-        </>
+        </section>
     )
 }
 
 const ItemRowsHeader = ({ children }: { children: JSX.Element[] }) => {
     return (
         <div className={`${styles.item__rows__header} grid`}>
-            <span>Sr. No.</span>
-            <span className={`${styles.ornament__list}`}>Ornament List</span>
-            <span>No. of units</span>
-            <span>Purity in carat</span>
-            <span>Purity in percentage</span>
-            <span>Weight in grams</span>
-            <span>Approx value in rupees</span>
+            {headerRowItems.map((headerItem) => {
+                return (
+                    <span key={headerItem.text} className={styles.header__span}>
+                        {headerItem.text}
+                    </span>
+                )
+            })}
             {children}
         </div>
     )

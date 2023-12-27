@@ -4,7 +4,7 @@ interface InvoiceInputProps {
     onChange: (event: React.ChangeEvent<HTMLInputElement>) => void
     value: string | number
     label?: string
-    extraClass?: string
+    extraClass?: string[]
     type?: string
 }
 const InvoiceInput = ({
@@ -22,7 +22,7 @@ const InvoiceInput = ({
                 value={value}
                 onChange={onChange}
                 className={`${styles.invoice__input} ${
-                    extraClass && styles[extraClass]
+                    extraClass?.length && styles[extraClass[1]]
                 }`}
                 type={type}
             ></input>

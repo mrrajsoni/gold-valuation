@@ -1,5 +1,9 @@
-.item__row {
-    grid-template-columns: auto 1.5fr auto auto auto auto 1fr;
+.select__class {
+    > div {
+        border: none;
+    }
+}
 
-    margin-top: 4px;
+.item__row {
+    padding-top: 4px;
 }

@@ -1,16 +1,23 @@
-.item__rows__header {
-    grid-template-columns: auto 1.5fr auto auto auto auto 1fr;
-    background-color: red;
+.item__rows__container {
+    .item__rows__header {
+        grid-template-columns: auto 1.5fr auto auto auto auto 1fr;
+        > * {
+            &:not(:last-child) {
+                border-right: 1px solid;
+            }
+        }
+        .header__span {
+            background-color: red;
 
-    span {
-        padding: 4px;
+            padding: 4px;
 
-        &:not(:last-child) {
-            border-right: 1px solid;
+            &.ornament__list {
+                flex-basis: 25%;
+            }
         }
 
-        &.ornament__list {
-            flex-basis: 25%;
+        .total__text {
+            grid-column-start: span 2;
         }
     }
 }

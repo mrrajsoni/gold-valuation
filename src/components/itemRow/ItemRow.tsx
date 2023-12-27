@@ -32,8 +32,9 @@ const ItemRow = ({
     }
     return (
         <>
-            <div>{index + 1}</div>
+            <div className={styles.item__row}>{index + 1}</div>
             <ReactSelect
+                className={`${styles.item__row} ${styles.select__class}`}
                 options={ornamentOptions}
                 onChange={(newValue) =>
                     handleUnitChange(newValue?.label ?? '', 'listOfItems')
@@ -42,7 +43,7 @@ const ItemRow = ({
             <InvoiceInput
                 type="number"
                 value={units.toString()}
-                extraClass="units"
+                extraClass={[styles.item__row, 'units']}
                 onChange={(event) =>
                     handleUnitChange(event.target.value, 'quantity')
                 }
@@ -50,19 +51,21 @@ const ItemRow = ({
             <span>{purityInCaratValue.toString()}</span>
             <InvoiceInput
                 value={purityInPercentageValue?.toString() ?? ''}
-                extraClass="purity__in__percentage"
+                extraClass={[styles.item__row, 'purity__in__percentage']}
                 onChange={(event) =>
                     handleUnitChange(event.target.value, 'purityInPercentage')
                 }
             />
             <InvoiceInput
                 value={weight.toString()}
-                extraClass="gross__weight"
+                extraClass={[styles.item__row, 'gross__weight']}
                 onChange={(event) =>
                     handleUnitChange(event.target.value, 'weight')
                 }
             />
-            <span>{valuationPrice.toString()}</span>
+            <span className={styles.item__row}>
+                {valuationPrice.toString()}
+            </span>
         </>
     )
 }
