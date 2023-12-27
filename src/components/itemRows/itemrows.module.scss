@@ -1,0 +1,16 @@
+.item__rows__header {
+    grid-template-columns: auto 1.5fr auto auto auto auto 1fr;
+    background-color: red;
+
+    span {
+        padding: 4px;
+
+        &:not(:last-child) {
+            border-right: 1px solid;
+        }
+
+        &.ornament__list {
+            flex-basis: 25%;
+        }
+    }
+}

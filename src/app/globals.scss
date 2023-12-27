@@ -1,3 +1,42 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import '../styles/variables.scss';
+
+body,
+span,
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: $textColor;
+}
+
+.main__container {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: $textColor;
+    }
+
+    h1 {
+        text-align: center;
+    }
+}
+body {
+    border: 2px solid #d6d6d6;
+    background-color: #f8f8f8;
+}
+main {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: $white;
+    border-radius: $borderRadius;
+}
