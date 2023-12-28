@@ -1,5 +1,10 @@
 .invoice__input {
-    padding: 4px;
+    padding: 4px 12px;
+
+    &:focus-visible {
+        border: none;
+        outline: none;
+    }
 }
 
 .units {

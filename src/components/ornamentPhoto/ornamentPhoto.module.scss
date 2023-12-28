@@ -1,0 +1,23 @@
+.ornament__photo {
+    text-align: right;
+    margin-block-end: 35px;
+
+    > div:not(.preview__image__wrapper) {
+        background-color: rgb(247, 250, 255);
+        white-space: nowrap;
+        border: 1px dashed rgb(180, 194, 213);
+        padding: 15px 1.2rem;
+        border-radius: 7px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+    }
+
+    .preview__image__wrapper {
+        width: 200px;
+        max-height: 175px;
+        cursor: pointer;
+        margin-left: auto;
+    }
+}
