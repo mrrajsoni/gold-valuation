@@ -10,6 +10,8 @@ interface ItemRowProps {
     weight: string
     valuationPrice: string
     index: number
+    onDeleteRow: (id: string) => void
+    id: string
     purityInPercentageValue?: string
     option?: string
     onChange?: (
@@ -26,12 +28,14 @@ const ItemRow = ({
     valuationPrice,
     index,
     onChange,
+    onDeleteRow,
+    id,
 }: ItemRowProps) => {
     const handleUnitChange = (unit: string, key: keyof ornamentListKeys) => {
         onChange && onChange(unit, index, key)
     }
     return (
-        <div className={`${styles.item__row__container} grid`}>
+        <div className={`${styles.item__row__container} grid relative`}>
             <span className={styles.item__row}>{index + 1}</span>
             <ReactSelect
                 className={`${styles.item__row} ${styles.select__class}`}
@@ -67,6 +71,14 @@ const ItemRow = ({
             <span className={styles.item__row}>
                 {valuationPrice.toString()}
             </span>
+            {Number(id) >= 1 && (
+                <div
+                    onClick={() => onDeleteRow(id)}
+                    className={`absolute ${styles.delete__button}`}
+                >
+                    Del
+                </div>
+            )}
         </div>
     )
 }

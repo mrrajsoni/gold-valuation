@@ -30,4 +30,11 @@
             border-left: 1px solid;
         }
     }
+
+    .delete__button {
+        right: -45px;
+        top: 10px;
+        border: none;
+        cursor: pointer;
+    }
 }

@@ -130,6 +130,11 @@ const ItemRows = ({ goldRatePerGram = 4420 }: ItemRowsProps) => {
         })
         setAllOrnamentList(newList)
     }
+
+    const handleDeleteRow = (id: string) => {
+        const newList = allOrnamentList.filter((list) => list.id !== id)
+        setAllOrnamentList(newList)
+    }
     return (
         <section className={styles.item__rows__container}>
             <div className={`text-center ${styles.bold}`}>
@@ -141,6 +146,7 @@ const ItemRows = ({ goldRatePerGram = 4420 }: ItemRowsProps) => {
             {allOrnamentList.map((ornament, index) => {
                 return (
                     <ItemRow
+                        id={ornament.id}
                         index={index}
                         onChange={handleChange}
                         purityInCaratValue={ornament.purityInCarat}
@@ -149,6 +155,7 @@ const ItemRows = ({ goldRatePerGram = 4420 }: ItemRowsProps) => {
                         valuationPrice={ornament.averageValue}
                         weight={ornament.weight}
                         key={ornament.id}
+                        onDeleteRow={handleDeleteRow}
                     />
                 )
             })}
