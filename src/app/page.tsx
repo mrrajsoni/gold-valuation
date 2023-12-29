@@ -1,3 +1,4 @@
+import Certification from '@/components/Certfication'
 import GoldRate from '@/components/GoldRate'
 import CompanyInfo from '@/components/companyInfo/CompanyInfo'
 import CustomerInfo from '@/components/contactInfo/customerInfo/CustomerInfo'
@@ -10,6 +11,7 @@ export default function Home() {
             <CompanyInfo />
             <GoldRate />
             <CustomerInfo />
+            <Certification />
             <ItemRows />
         </main>
     )

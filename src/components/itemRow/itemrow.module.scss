@@ -2,8 +2,32 @@
     > div {
         border: none;
     }
+
+    .css-t3ipsp-control {
+        box-shadow: none;
+    }
+
+    .css-1fdsijx-ValueContainer {
+        padding: 0;
+    }
 }
 
-.item__row {
-    padding-top: 4px;
+.item__row__container {
+    grid-template-columns: 60px 240px 97px 115px 162px 131px 1fr;
+    span {
+        display: flex;
+        align-items: center;
+    }
+
+    > * {
+        border-bottom: 1px solid;
+        border-right: 1px solid;
+        padding: 4px 12px;
+    }
+
+    .item__row {
+        &:first-child {
+            border-left: 1px solid;
+        }
+    }
 }

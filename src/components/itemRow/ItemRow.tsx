@@ -31,14 +31,15 @@ const ItemRow = ({
         onChange && onChange(unit, index, key)
     }
     return (
-        <div>
-            <div className={styles.item__row}>{index + 1}</div>
+        <div className={`${styles.item__row__container} grid`}>
+            <span className={styles.item__row}>{index + 1}</span>
             <ReactSelect
                 className={`${styles.item__row} ${styles.select__class}`}
                 options={ornamentOptions}
                 onChange={(newValue) =>
                     handleUnitChange(newValue?.label ?? '', 'listOfItems')
                 }
+                unstyled
             ></ReactSelect>
             <InvoiceInput
                 type="number"

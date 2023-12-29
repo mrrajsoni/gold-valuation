@@ -42,7 +42,10 @@ const OrnamentPhoto = () => {
                         src={ImagePlaceholder}
                         alt="upload-placeholder-icon"
                     />
-                    <h3>Add ornament photo</h3>
+                    <div className="text-left">
+                        <h3>Add ornament photo</h3>
+                        500x500
+                    </div>
                 </div>
             )}
             <Uploader onChange={onSelectFile} ref={inputRef} />

@@ -2,7 +2,6 @@
 import { useEffect, useState } from 'react'
 import styles from './itemrows.module.scss'
 import ItemRow from '../itemRow/ItemRow'
-import { ornamentOptions } from '@/constants/global'
 
 export type ornamentListKeys = {
     id: string
@@ -133,50 +132,43 @@ const ItemRows = ({ goldRatePerGram = 4420 }: ItemRowsProps) => {
     }
     return (
         <section className={styles.item__rows__container}>
-            <ItemRowsHeader>
-                {allOrnamentList.map((ornament, index) => {
-                    return (
-                        <ItemRow
-                            index={index}
-                            onChange={handleChange}
-                            purityInCaratValue={ornament.purityInCarat}
-                            units={ornament.quantity}
-                            purityInPercentageValue={
-                                ornament.purityInPercentage
-                            }
-                            valuationPrice={ornament.averageValue}
-                            weight={ornament.weight}
-                            key={ornament.id}
-                        />
-                    )
-                })}
-            </ItemRowsHeader>
-
-            <div className={`${styles.totals__row} grid`}>
-                <span className={styles.total__text}>Total</span>
-                <span className={styles.total__units}>{totals.units}</span>
-                <span className={styles.total__weight}>
-                    {totals.weightInGrams}
-                </span>
-                <span className={styles.total__net__weight}>
-                    {totals.netWeight}
-                </span>
-                <span className={styles.total__carat__22__gold}>
-                    {totals.carat22Gold}
-                </span>
-                <span className={styles.total__carat__24__gold}>
-                    {totals.carat24Gold}
-                </span>
-                <span className={styles.total__price}>{totals.priceValue}</span>
+            <div className={`text-center ${styles.bold}`}>
+                <h5>
+                    Details of Gold Ornaments kept with the bank are as under
+                </h5>
             </div>
+            <ItemRowsHeader />
+            {allOrnamentList.map((ornament, index) => {
+                return (
+                    <ItemRow
+                        index={index}
+                        onChange={handleChange}
+                        purityInCaratValue={ornament.purityInCarat}
+                        units={ornament.quantity}
+                        purityInPercentageValue={ornament.purityInPercentage}
+                        valuationPrice={ornament.averageValue}
+                        weight={ornament.weight}
+                        key={ornament.id}
+                    />
+                )
+            })}
+
             <button onClick={addNewRow} type="button">
                 Add New Row
             </button>
+
+            <ItemTotals
+                units={totals.units}
+                weightInGrams={totals.weightInGrams}
+                netWeight={totals.netWeight}
+                carat22Gold={totals.carat22Gold}
+                price={totals.priceValue}
+            />
         </section>
     )
 }
 
-const ItemRowsHeader = ({ children }: { children: JSX.Element[] }) => {
+const ItemRowsHeader = () => {
     return (
         <div className={`${styles.item__rows__header} grid`}>
             {headerRowItems.map((headerItem) => {
@@ -186,7 +178,46 @@ const ItemRowsHeader = ({ children }: { children: JSX.Element[] }) => {
                     </span>
                 )
             })}
-            {children}
+        </div>
+    )
+}
+
+interface ItemTotalsProps {
+    units: number
+    weightInGrams: number
+    netWeight: number
+    carat22Gold: number
+    price: number
+}
+const ItemTotals = ({
+    carat22Gold,
+    netWeight,
+    price,
+    units,
+    weightInGrams,
+}: ItemTotalsProps) => {
+    return (
+        <div className={styles.totals__row__container}>
+            <div>
+                <span>Units</span>
+                <span>{units}</span>
+            </div>
+            <div>
+                <span>Weight in grams</span>
+                <span>{weightInGrams}</span>
+            </div>
+            <div>
+                <span>Net Weight</span>
+                <span>{netWeight}</span>
+            </div>
+            <div>
+                <span>22 carat gold</span>
+                <span>{carat22Gold}</span>
+            </div>
+            <div>
+                <span>Approx valuation price</span>
+                <span>{price}</span>
+            </div>
         </div>
     )
 }
