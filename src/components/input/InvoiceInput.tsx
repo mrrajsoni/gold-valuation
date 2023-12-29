@@ -6,6 +6,8 @@ interface InvoiceInputProps {
     label?: string
     extraClass?: string[]
     type?: string
+    placeHolder?: string
+    showBorder?: boolean
 }
 const InvoiceInput = ({
     extraClass,
@@ -13,6 +15,8 @@ const InvoiceInput = ({
     label,
     type = 'text',
     onChange,
+    placeHolder = '',
+    showBorder = false,
 }: InvoiceInputProps) => {
     const showLabel = Boolean(label)
     return (
@@ -23,8 +27,9 @@ const InvoiceInput = ({
                 onChange={onChange}
                 className={`${styles.invoice__input} ${
                     extraClass?.length && styles[extraClass[1]]
-                }`}
+                } ${showBorder && styles.with__border}`}
                 type={type}
+                placeholder={placeHolder}
             ></input>
         </>
     )

@@ -136,20 +136,18 @@ const ItemRows = ({ goldRatePerGram = 4420 }: ItemRowsProps) => {
             <ItemRowsHeader>
                 {allOrnamentList.map((ornament, index) => {
                     return (
-                        <>
-                            <ItemRow
-                                index={index}
-                                onChange={handleChange}
-                                purityInCaratValue={ornament.purityInCarat}
-                                units={ornament.quantity}
-                                purityInPercentageValue={
-                                    ornament.purityInPercentage
-                                }
-                                valuationPrice={ornament.averageValue}
-                                weight={ornament.weight}
-                                key={index}
-                            />
-                        </>
+                        <ItemRow
+                            index={index}
+                            onChange={handleChange}
+                            purityInCaratValue={ornament.purityInCarat}
+                            units={ornament.quantity}
+                            purityInPercentageValue={
+                                ornament.purityInPercentage
+                            }
+                            valuationPrice={ornament.averageValue}
+                            weight={ornament.weight}
+                            key={ornament.id}
+                        />
                     )
                 })}
             </ItemRowsHeader>

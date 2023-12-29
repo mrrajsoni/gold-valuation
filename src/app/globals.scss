@@ -40,4 +40,11 @@ main {
 
 textarea {
     padding: $inputPadding;
+    border: $inputBorder;
+    border-radius: 4px;
+
+    &:focus-visible {
+        // border: none;
+        outline: none;
+    }
 }
