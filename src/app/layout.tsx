@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 
-import './globals.scss'
+import '../styles/globals.scss'
 import { areaRegular, aeonikBold } from '@/utils/fonts'
 
 export const metadata: Metadata = {

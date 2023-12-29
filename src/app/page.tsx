@@ -1,4 +1,5 @@
-import Address from '@/components/contactInfo/customerInfo/Address'
+import GoldRate from '@/components/GoldRate'
+import CompanyInfo from '@/components/companyInfo/CompanyInfo'
 import CustomerInfo from '@/components/contactInfo/customerInfo/CustomerInfo'
 import ItemRows from '@/components/itemRows/ItemRows'
 import OrnamentPhoto from '@/components/ornamentPhoto/OrnamentPhoto'
@@ -6,13 +7,9 @@ import OrnamentPhoto from '@/components/ornamentPhoto/OrnamentPhoto'
 export default function Home() {
     return (
         <main className="min-h-screen">
-            <div className="company__logo__container"></div>
-            <section className="address__ornament__container flex justify-between">
-                <div className="contact__info__wrapper flex flex-col">
-                    <CustomerInfo />
-                </div>
-                <OrnamentPhoto />
-            </section>
+            <CompanyInfo />
+            <GoldRate />
+            <CustomerInfo />
             <ItemRows />
         </main>
     )

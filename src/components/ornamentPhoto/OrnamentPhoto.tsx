@@ -5,6 +5,7 @@ import styles from './ornamentPhoto.module.scss'
 import Image from 'next/image'
 import ImagePlaceholder from '../../../public/images/image.svg'
 import { useEffect, useRef, useState } from 'react'
+
 const OrnamentPhoto = () => {
     const [selectedFile, setSelectedFile] = useState<File>()
     const [preview, setPreview] = useState('')

@@ -19,6 +19,7 @@ body {
     border: 2px solid #d6d6d6;
     background-color: #f8f8f8;
     font-family: var(--body-font-regular);
+    font-size: 15px;
 }
 
 h1,
@@ -47,4 +48,19 @@ textarea {
         // border: none;
         outline: none;
     }
+}
+
+.gold__rate__container {
+    padding-block: 25px;
+    border-bottom: 1px solid lightblue;
+    input {
+        text-align: center;
+        width: 75px;
+        font-weight: bold;
+        padding: 0;
+    }
+}
+
+.address__ornament__container {
+    padding-block: 25px;
 }

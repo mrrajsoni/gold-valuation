@@ -1,0 +1,13 @@
+.company__info__wrapper {
+    padding-block-end: 25px;
+    border-bottom: 1px solid lightblue;
+
+    > * {
+        flex: 1;
+        max-width: 250px;
+    }
+
+    .company__logo {
+        max-width: 200px;
+    }
+}
