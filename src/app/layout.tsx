@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 
 import '../styles/globals.scss'
-import { areaRegular, aeonikBold } from '@/utils/fonts'
+import { areaRegular, aeonikBold, monaSansRegular } from '@/utils/fonts'
 
 export const metadata: Metadata = {
     title: 'Create Next App',
@@ -15,7 +15,9 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-            <body className={`${areaRegular.variable} ${aeonikBold.variable}`}>
+            <body
+                className={`${areaRegular.variable} ${aeonikBold.variable} ${monaSansRegular.variable}`}
+            >
                 {children}
             </body>
         </html>

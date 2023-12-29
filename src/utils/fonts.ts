@@ -10,3 +10,9 @@ export const aeonikBold = localFont({
     display: 'swap',
     variable: '--heading-font',
 })
+
+export const monaSansRegular = localFont({
+    src: '../../public/fonts/MonaSans-Regular.woff2',
+    display: 'swap',
+    variable: '--mona-sans-regular',
+})
