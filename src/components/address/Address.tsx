@@ -1,5 +1,9 @@
 const Address = () => {
-    return <textarea rows={4} cols={4} />
+    return (
+        <>
+            <textarea placeholder="Address" rows={3} cols={30} />
+        </>
+    )
 }
 
 export default Address

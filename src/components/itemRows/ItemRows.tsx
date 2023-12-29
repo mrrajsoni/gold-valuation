@@ -147,7 +147,7 @@ const ItemRows = ({ goldRatePerGram = 4420 }: ItemRowsProps) => {
                                 }
                                 valuationPrice={ornament.averageValue}
                                 weight={ornament.weight}
-                                key={ornament.id}
+                                key={index}
                             />
                         </>
                     )

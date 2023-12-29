@@ -1,7 +1,7 @@
 .item__rows__container {
     .item__rows__header {
-        grid-template-columns: auto 1.5fr auto auto auto auto 1fr;
-        // grid-template-columns: 60px 240px 97px 115px 162px 131px 1fr;
+        // grid-template-columns: auto 1.5fr auto auto auto auto 1fr;
+        grid-template-columns: 60px 240px 97px 115px 162px 131px 1fr;
 
         > * {
             &:not(:last-child) {

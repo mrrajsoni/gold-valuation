@@ -31,7 +31,7 @@ const ItemRow = ({
         onChange && onChange(unit, index, key)
     }
     return (
-        <>
+        <div>
             <div className={styles.item__row}>{index + 1}</div>
             <ReactSelect
                 className={`${styles.item__row} ${styles.select__class}`}
@@ -66,7 +66,7 @@ const ItemRow = ({
             <span className={styles.item__row}>
                 {valuationPrice.toString()}
             </span>
-        </>
+        </div>
     )
 }
 
