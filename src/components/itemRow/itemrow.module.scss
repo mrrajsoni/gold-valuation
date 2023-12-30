@@ -32,9 +32,13 @@
     }
 
     .delete__button {
-        right: -45px;
+        right: -35px;
         top: 10px;
         border: none;
         cursor: pointer;
+
+        > img {
+            width: 20px;
+        }
     }
 }

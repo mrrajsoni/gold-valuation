@@ -3,6 +3,8 @@ import styles from './itemrow.module.scss'
 import { ornamentListKeys } from '../itemRows/ItemRows'
 import ReactSelect from 'react-select'
 import { ornamentOptions } from '@/constants/global'
+import DeleteIcon from '../../../public/images/delete.svg'
+import Image from 'next/image'
 
 interface ItemRowProps {
     units: string
@@ -76,7 +78,7 @@ const ItemRow = ({
                     onClick={() => onDeleteRow(id)}
                     className={`absolute ${styles.delete__button}`}
                 >
-                    Del
+                    <Image src={DeleteIcon} alt="delete" />
                 </div>
             )}
         </div>

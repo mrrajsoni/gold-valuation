@@ -19,7 +19,7 @@ body {
     border: 2px solid #d6d6d6;
     background-color: #f8f8f8;
     font-family: var(--mona-sans-regular);
-    font-size: 15px;
+    font-size: 14px;
 }
 
 h1,
@@ -50,6 +50,14 @@ textarea {
     }
 }
 
+button,
+[type='button'] {
+    padding: 12px 24px;
+    background: $primaryShadeColor;
+    color: $primaryColor;
+    border-radius: 24px;
+    font-weight: bold;
+}
 .gold__rate__container {
     padding-block: 25px;
     border-bottom: 1px solid lightblue;

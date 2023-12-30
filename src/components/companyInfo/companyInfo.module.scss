@@ -1,6 +1,7 @@
 .company__info__wrapper {
     padding-block-end: 25px;
     border-bottom: 1px solid lightblue;
+    font-size: 14px;
 
     > * {
         flex: 1;
@@ -8,6 +9,6 @@
     }
 
     .company__logo {
-        max-width: 200px;
+        max-width: 175px;
     }
 }
