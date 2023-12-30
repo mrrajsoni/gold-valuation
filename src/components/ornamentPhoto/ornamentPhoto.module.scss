@@ -1,8 +1,10 @@
+@import '/src/styles/variables.scss';
+
 .ornament__photo {
     text-align: right;
 
     > div:not(.preview__image__wrapper) {
-        background-color: rgb(247, 250, 255);
+        background-color: $primaryShadeColor;
         white-space: nowrap;
         border: 1px dashed rgb(180, 194, 213);
         padding: 15px 1.2rem;

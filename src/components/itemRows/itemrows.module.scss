@@ -16,6 +16,8 @@
             background-color: $primaryShadeColor;
             font-weight: bold;
             border-top: 1px solid $primaryBorderColor;
+            display: flex;
+            align-items: center;
 
             &:first-child {
                 border-left: 1px solid $primaryBorderColor;

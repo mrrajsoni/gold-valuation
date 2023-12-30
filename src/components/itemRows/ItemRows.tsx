@@ -139,7 +139,7 @@ const ItemRows = ({ goldRatePerGram = 4420 }: ItemRowsProps) => {
     return (
         <section className={styles.item__rows__container}>
             <div className={`text-center ${styles.bold}`}>
-                <h5>
+                <h5 className="mb-2">
                     Details of Gold Ornaments kept with the bank are as under
                 </h5>
             </div>
