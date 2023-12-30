@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react'
 import styles from './itemrows.module.scss'
 import ItemRow from '../itemRow/ItemRow'
+import LabelValue from '../labelValue/LabelValue'
 
 export type ornamentListKeys = {
     id: string
@@ -121,7 +122,7 @@ const ItemRows = ({ goldRatePerGram = 4420 }: ItemRowsProps) => {
         const newList: ornamentListKeys[] = [...allOrnamentList]
         newList.push({
             averageValue: '',
-            id: `${newList.length}`,
+            id: `${newList.length + 1} `,
             listOfItems: { label: '', value: '' },
             purityInCarat: '',
             purityInPercentage: '',
@@ -205,26 +206,18 @@ const ItemTotals = ({
 }: ItemTotalsProps) => {
     return (
         <div className={styles.totals__row__container}>
-            <div>
-                <span>Units</span>
-                <span>{units}</span>
-            </div>
-            <div>
-                <span>Weight in grams</span>
-                <span>{weightInGrams}</span>
-            </div>
-            <div>
-                <span>Net Weight</span>
-                <span>{netWeight}</span>
-            </div>
-            <div>
-                <span>22 carat gold</span>
-                <span>{carat22Gold}</span>
-            </div>
-            <div>
-                <span>Approx valuation price</span>
-                <span>{price}</span>
-            </div>
+            <LabelValue label="Units" value={units.toString()} />
+            <LabelValue
+                label="Weight in grams"
+                value={weightInGrams.toString()}
+            />
+            <LabelValue label="Net Weight" value={netWeight.toString()} />
+            <LabelValue label="22 carat gold" value={carat22Gold.toString()} />
+
+            <LabelValue
+                label="Approx valuation price"
+                value={price.toString()}
+            />
         </div>
     )
 }

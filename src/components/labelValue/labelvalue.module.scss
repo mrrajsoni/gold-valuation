@@ -1,0 +1,13 @@
+.label__value__container {
+    display: flex;
+    align-items: center;
+
+    > span {
+        &:first-child {
+            font-family: var(--heading-font);
+        }
+
+        &:last-child {
+        }
+    }
+}

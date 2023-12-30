@@ -71,7 +71,7 @@ const ItemRow = ({
             <span className={styles.item__row}>
                 {valuationPrice.toString()}
             </span>
-            {Number(id) >= 1 && (
+            {Number(id) > 1 && (
                 <div
                     onClick={() => onDeleteRow(id)}
                     className={`absolute ${styles.delete__button}`}

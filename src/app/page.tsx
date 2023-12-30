@@ -1,4 +1,5 @@
 import Certification from '@/components/Certfication'
+import CustomerDeclaration from '@/components/CustomerDeclaration'
 import GoldRate from '@/components/GoldRate'
 import CompanyInfo from '@/components/companyInfo/CompanyInfo'
 import CustomerInfo from '@/components/contactInfo/customerInfo/CustomerInfo'
@@ -13,6 +14,7 @@ export default function Home() {
             <CustomerInfo />
             <Certification />
             <ItemRows />
+            <CustomerDeclaration />
         </main>
     )
 }
