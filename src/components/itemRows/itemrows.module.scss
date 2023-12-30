@@ -1,3 +1,5 @@
+@import '/src/styles/variables.scss';
+
 .item__rows__container {
     padding-block-start: 25px;
 
@@ -6,17 +8,17 @@
         grid-template-columns: 60px 240px 97px 115px 162px 131px 1fr;
 
         > * {
-            border-bottom: 1px solid;
-            border-right: 1px solid;
+            border-bottom: 1px solid $primaryBorderColor;
+            border-right: 1px solid $primaryBorderColor;
             padding: 4px 12px;
         }
         .header__span {
-            background-color: rgb(208, 208, 208);
-
-            border-top: 1px solid;
+            background-color: $primaryShadeColor;
+            font-weight: bold;
+            border-top: 1px solid $primaryBorderColor;
 
             &:first-child {
-                border-left: 1px solid;
+                border-left: 1px solid $primaryBorderColor;
             }
             &.ornament__list {
                 flex-basis: 25%;
