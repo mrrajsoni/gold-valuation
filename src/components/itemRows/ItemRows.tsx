@@ -62,9 +62,9 @@ const headerRowItems = [
 ]
 
 interface ItemRowsProps {
-    goldRatePerGram?: number
+    goldRatePerGram?: string
 }
-const ItemRows = ({ goldRatePerGram = 4420 }: ItemRowsProps) => {
+const ItemRows = ({ goldRatePerGram = '4420' }: ItemRowsProps) => {
     const [allOrnamentList, setAllOrnamentList] = useState(ornamentList)
     const [totals, setTotals] = useState(totalValues)
     const handleChange = (
@@ -90,7 +90,7 @@ const ItemRows = ({ goldRatePerGram = 4420 }: ItemRowsProps) => {
             }
             if (newListCopy[index].weight) {
                 newListCopy[index].averageValue = (
-                    Number(newListCopy[index].weight) * goldRatePerGram
+                    Number(newListCopy[index].weight) * Number(goldRatePerGram)
                 )
                     .toFixed(2)
                     .toString()
@@ -116,7 +116,7 @@ const ItemRows = ({ goldRatePerGram = 4420 }: ItemRowsProps) => {
             priceValue: totalPrice,
             units: totalUnits,
         })
-    }, [allOrnamentList])
+    }, [allOrnamentList, goldRatePerGram])
 
     const addNewRow = () => {
         const newList: ornamentListKeys[] = [...allOrnamentList]

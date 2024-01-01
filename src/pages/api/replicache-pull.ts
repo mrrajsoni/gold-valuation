@@ -9,7 +9,7 @@ export default async function (_: NextApiRequest, res: NextApiResponse) {
         patch: [
             {
                 op: 'put',
-                key: 'order/qpdgkvpb9ao',
+                key: 'order/1',
                 value: {
                     customerName: 'Hardika',
                     branchName: 'Viman Nagar',

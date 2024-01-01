@@ -13,25 +13,73 @@ export const replicacheInstance = process.browser
                   tx: WriteTransaction,
                   { branchName }: { branchName: string },
               ) {
-                  await tx.set(`order/${1}`, {
-                      branchName,
-                  })
+                  const prev = await tx.get<any>('order/1')
+
+                  if (prev) {
+                      const newValues = { ...prev, branchName }
+                      await tx.set(`order/${1}`, newValues)
+                  } else {
+                      await tx.set(`order/${1}`, {
+                          branchName,
+                      })
+                  }
               },
               async customerName(
                   tx: WriteTransaction,
                   { customerName }: { customerName: string },
               ) {
-                  await tx.set(`order/${1}`, {
-                      customerName,
-                  })
+                  const prev = await tx.get<any>('order/1')
+                  if (prev) {
+                      const newValues = { ...prev, customerName }
+                      await tx.set(`order/${1}`, newValues)
+                  } else {
+                      await tx.set(`order/${1}`, {
+                          customerName,
+                      })
+                  }
               },
               async goldRate(
                   tx: WriteTransaction,
                   { goldRate }: { goldRate: string },
               ) {
-                  await tx.set(`order/${1}`, {
-                      goldRate,
-                  })
+                  const prev = await tx.get<any>('order/1')
+                  if (prev) {
+                      const newValues = { ...prev, goldRate }
+
+                      await tx.set(`order/${1}`, newValues)
+                  } else {
+                      await tx.set(`order/${1}`, {
+                          goldRate,
+                      })
+                  }
+              },
+              async customerMobile(
+                  tx: WriteTransaction,
+                  { customerMobile }: { customerMobile: string },
+              ) {
+                  const prev = await tx.get<any>('order/1')
+                  if (prev) {
+                      const newValues = { ...prev, customerMobile }
+                      await tx.set(`order/${1}`, newValues)
+                  } else {
+                      await tx.set(`order/${1}`, {
+                          customerMobile,
+                      })
+                  }
+              },
+              async customerAddress(
+                  tx: WriteTransaction,
+                  { customerAddress }: { customerAddress: string },
+              ) {
+                  const prev = await tx.get<any>('order/1')
+                  if (prev) {
+                      const newValues = { ...prev, customerAddress }
+                      await tx.set(`order/${1}`, newValues)
+                  } else {
+                      await tx.set(`order/${1}`, {
+                          customerAddress,
+                      })
+                  }
               },
           },
       })

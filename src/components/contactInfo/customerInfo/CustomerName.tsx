@@ -1,13 +1,22 @@
 'use client'
 
 import InvoiceInput from '@/components/input/InvoiceInput'
-import { useState } from 'react'
+import { replicacheInstance } from '@/utils/replicacheClient'
+import { nanoid } from 'nanoid'
+import { useEffect, useState } from 'react'
 
-const CustomerName = () => {
-    const [customerName, setCustomerName] = useState('')
+const CustomerName = ({ name }: { name: string }) => {
+    const [customerName, setCustomerName] = useState(name)
 
+    useEffect(() => {
+        setCustomerName(name)
+    }, [name])
     const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setCustomerName(event.target.value)
+        const newCustomerName = event.target.value
+        replicacheInstance?.mutate.customerName({
+            customerName: newCustomerName,
+        })
+        setCustomerName(newCustomerName)
     }
     return (
         <InvoiceInput

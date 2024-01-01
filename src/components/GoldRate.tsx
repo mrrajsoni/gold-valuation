@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react'
 import InvoiceInput from './input/InvoiceInput'
 import { replicacheInstance } from '@/utils/replicacheClient'
+import { nanoid } from 'nanoid'
 
 const GoldRate = ({ rate }: { rate: string }) => {
     const [goldRate, setGoldRate] = useState(rate)

@@ -3,12 +3,15 @@ import BankInfo from './BankInfo'
 import KalyanJewel from '../../../public/images/Kalyan_Jewellers_logo.png'
 import styles from './companyInfo.module.scss'
 
-const CompanyInfo = () => {
+interface CompanyInfoProps {
+    branchName: string
+}
+const CompanyInfo = ({ branchName }: CompanyInfoProps) => {
     return (
         <section
             className={`${styles.company__info__wrapper} flex justify-between gap-4`}
         >
-            <BankInfo />
+            <BankInfo branch={branchName} />
             <CompanyLogo />
             <CompanyDetails />
         </section>
