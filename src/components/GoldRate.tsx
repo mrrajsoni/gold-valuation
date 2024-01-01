@@ -1,12 +1,22 @@
 'use client'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import InvoiceInput from './input/InvoiceInput'
+import { replicacheInstance } from '@/utils/replicacheClient'
 
-const GoldRate = () => {
-    const [goldRate, setGoldRate] = useState('')
+const GoldRate = ({ rate }: { rate: string }) => {
+    const [goldRate, setGoldRate] = useState(rate)
 
-    const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) =>
-        setGoldRate(event.target.value)
+    useEffect(() => {
+        setGoldRate(rate)
+    }, [rate])
+    const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const newGoldRate = event.target.value
+        replicacheInstance?.mutate.goldRate({
+            goldRate: newGoldRate,
+        })
+        setGoldRate(newGoldRate)
+    }
+
     return (
         <section className="gold__rate__container text-center">
             <div className="flex gap-2 justify-center items-end">
