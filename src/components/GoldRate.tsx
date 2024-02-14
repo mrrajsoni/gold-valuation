@@ -20,13 +20,9 @@ const GoldRate = ({ rate }: { rate: string }) => {
 
     return (
         <section className="gold__rate__container text-center">
-            <div className="flex gap-2 justify-center items-end">
-                Today&apos;s rate of 22 carat gold is -
-                <InvoiceInput
-                    onChange={handleOnChange}
-                    value={goldRate}
-                    showBorder
-                />
+            <div className="flex justify-center">
+                Today&apos;s rate of 22 carat gold is - &nbsp;
+                <strong> {goldRate}</strong>
             </div>
         </section>
     )

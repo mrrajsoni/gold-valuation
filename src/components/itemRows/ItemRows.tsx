@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import styles from './itemrows.module.scss'
 import ItemRow from '../itemRow/ItemRow'
 import LabelValue from '../labelValue/LabelValue'
+import { replicacheInstance } from '@/utils/replicacheClient'
 
 export type ornamentListKeys = {
     id: string
@@ -13,20 +14,6 @@ export type ornamentListKeys = {
     purityInCarat: string
     purityInPercentage: string
 }
-const ornamentList: ornamentListKeys[] = [
-    {
-        id: '1',
-        listOfItems: {
-            label: '',
-            value: '',
-        },
-        quantity: '',
-        weight: '',
-        averageValue: '',
-        purityInCarat: '',
-        purityInPercentage: '',
-    },
-]
 
 const totalValues = {
     units: 0,
@@ -63,9 +50,13 @@ const headerRowItems = [
 
 interface ItemRowsProps {
     goldRatePerGram?: string
+    ornamentsData: ornamentListKeys[]
 }
-const ItemRows = ({ goldRatePerGram = '4420' }: ItemRowsProps) => {
-    const [allOrnamentList, setAllOrnamentList] = useState(ornamentList)
+const ItemRows = ({
+    goldRatePerGram = '4420',
+    ornamentsData,
+}: ItemRowsProps) => {
+    const [allOrnamentList, setAllOrnamentList] = useState(ornamentsData)
     const [totals, setTotals] = useState(totalValues)
     const handleChange = (
         value: string,
@@ -130,6 +121,9 @@ const ItemRows = ({ goldRatePerGram = '4420' }: ItemRowsProps) => {
             weight: '',
         })
         setAllOrnamentList(newList)
+        replicacheInstance?.mutate.addOrnaments({
+            ornaments: allOrnamentList,
+        })
     }
 
     const handleDeleteRow = (id: string) => {
@@ -206,18 +200,22 @@ const ItemTotals = ({
 }: ItemTotalsProps) => {
     return (
         <div className={styles.totals__row__container}>
-            <LabelValue label="Units" value={units.toString()} />
-            <LabelValue
-                label="Weight in grams"
-                value={weightInGrams.toString()}
-            />
-            <LabelValue label="Net Weight" value={netWeight.toString()} />
-            <LabelValue label="22 carat gold" value={carat22Gold.toString()} />
-
-            <LabelValue
-                label="Approx valuation price"
-                value={price.toString()}
-            />
+            <table>
+                <thead>
+                    <th>Units</th>
+                    <th>Weight in grams</th>
+                    <th>Net Weight</th>
+                    <th>22 carat gold</th>
+                    <th>Approx valuation price</th>
+                </thead>
+                <tbody>
+                    <tr>{units.toString()}</tr>
+                    <tr>{weightInGrams.toString()}</tr>
+                    <tr>{netWeight.toString()}</tr>
+                    <tr>{carat22Gold.toString()}</tr>
+                    <tr>{price.toString()}</tr>
+                </tbody>
+            </table>
         </div>
     )
 }

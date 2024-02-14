@@ -1,12 +1,10 @@
-import { InvoiceOrderWithID } from '@/app/page'
 import { Replicache, TEST_LICENSE_KEY, WriteTransaction } from 'replicache'
-import { nanoid } from 'nanoid'
+import { ornamentListKeys } from '@/components/itemRows/ItemRows'
 
 export const replicacheInstance = process.browser
     ? new Replicache({
           name: 'invoice-order',
           licenseKey: TEST_LICENSE_KEY,
-          pushURL: '/api/replicache-push',
           pullURL: '/api/replicache-pull',
           mutators: {
               async addBranchName(
@@ -78,6 +76,20 @@ export const replicacheInstance = process.browser
                   } else {
                       await tx.set(`order/${1}`, {
                           customerAddress,
+                      })
+                  }
+              },
+              async addOrnaments(
+                  tx: WriteTransaction,
+                  { ornaments }: { ornaments: ornamentListKeys[] },
+              ) {
+                  const prev = await tx.get<any>('order/1')
+                  if (prev) {
+                      const newValues = { ...prev, ornamentList: ornaments }
+                      await tx.set(`order/${1}`, newValues)
+                  } else {
+                      await tx.set(`order/${1}`, {
+                          ornaments,
                       })
                   }
               },

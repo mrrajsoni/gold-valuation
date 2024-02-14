@@ -31,6 +31,9 @@ h6 {
     font-family: var(--heading-font);
 }
 
+strong {
+    font-family: var(--mona-sans-bold);
+}
 main {
     max-width: 1080px;
     margin: 0 auto;
@@ -78,4 +81,27 @@ button,
     padding-block: 25px;
     margin-block-start: 25px;
     border-top: 1px solid lightblue;
+}
+
+.sidebar__toggle__button {
+    position: fixed;
+    left: 0;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.378);
+}
+
+.sidebar__container {
+    background: white;
+    min-width: 350px;
+
+    > div {
+        padding: 15px;
+    }
+    .sidebar__form__container > {
+        div {
+            display: flex;
+            flex-direction: column;
+            margin-block-end: 20px;
+            gap: 5px;
+        }
+    }
 }

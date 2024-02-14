@@ -1,22 +1,10 @@
-import { replicacheInstance } from '@/utils/replicacheClient'
-import React, { useEffect } from 'react'
+'use client'
 
 const Address = ({ address }: { address: string }) => {
-    const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-        const newAddress = event.target.value
-        replicacheInstance?.mutate.customerAddress({
-            customerAddress: newAddress,
-        })
-    }
-    useEffect(() => {}, [address])
     return (
-        <textarea
-            onChange={handleChange}
-            value={address}
-            placeholder="Address"
-            rows={3}
-            cols={30}
-        />
+        <div>
+            Address: <span>{address}</span>
+        </div>
     )
 }
 
